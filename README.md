@@ -57,7 +57,7 @@ binutils 2.29 http://ftp.gnu.org/gnu/binutils/binutils-2.29.tar.bz2
 -------------------------------------------------------------------------------
 Which files in this repo are the logs for your build?   This should include logs for creating the buildroots, applying patches, doing the build, creating the archives, etc.
 -------------------------------------------------------------------------------
-We don't have individual build log for individual component.  We have build logs for the entire OS.
+build.log
 
 -------------------------------------------------------------------------------
 Put info about what bootloader you're using, including which patches it includes to enforce Secure Boot here:
