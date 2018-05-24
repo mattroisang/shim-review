@@ -1,0 +1,23 @@
+shim Change Log
+
+shim-0.9/Makefile
+Adjust the paths so that the tools and include files can be found.  All changes are #ifdef for SunOS so that other 
+build platform still works as before.
+
+shim-0.9/shim.c
+Load and run seconde stage grub; if that fails, run MokManager.
+
+shim-0.9/netboot.c
+Modified to work with existing Solaris AI install infrastructure.
+
+shim-0.9/include/PeImage.h
+Modification to include definitions and include file.
+
+shim-0.9/include/efiauthenticated.h
+Modification to include definitions and include file.
+
+shim-0.9/Cryptlib/OpenSSL/Makefile
+Remove building with elliptical curve on Solaris.
+
+shim-0.9/Cryptlib/Include/openssl/ec.h
+Remove building with elliptical curve on Solaris.

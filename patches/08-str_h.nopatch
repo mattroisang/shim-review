@@ -1,0 +1,46 @@
+# Source: Internal
+# Info: Written internally so this component can be built and run on Solaris.
+# Status: This patch is offered at https://github.com/rhinstaller/shim/issues/54
+
+--- ORIGINAL/include/str.h	2018-03-28 16:01:01.794807872 +0000
++++ shim-0.9/include/str.h	2018-03-28 16:01:51.441266543 +0000
+@@ -42,4 +42,39 @@
+ 	return dest;
+ }
+ 
++static inline
++__attribute__((unused))
++CHAR8 *
++strstra(const CHAR8 *src, const CHAR8 *substr)
++{
++	const CHAR8 *p1, *p2, *p3;
++	unsigned long i=0,j=0;
++	unsigned long srclen = strlena((CHAR8 *) src);
++	unsigned long sublen = strlena((CHAR8 *) substr);
++
++	p1 = src;
++
++	for(i = 0; i<srclen; i++) {
++		if(*p1 == *substr) {
++			p3 = p1;
++			p2 = substr;
++			for(j = 0; j<sublen; j++) {
++				if(*p3 == *p2) {
++					p3++;
++					p2++;
++				}
++				else {
++					break;
++				}
++			}
++			p2 = substr;
++			if(j == sublen) {
++				return (CHAR8 *) p1;
++			}
++		}
++		p1++; 
++ 	}
++	return NULL;
++}
++
+ #endif /* SHIM_STR_H */
